@@ -4,6 +4,9 @@ import boatsArray from './data/boats'
 import './styles/App.css'
 import { Route } from 'react-router-dom'
 import Home from './components/Home'
+import Nav from './components/Nav'
+import Listings from './components/Listings'
+import BoatDetails from './components/BoatDetails'
 
 const App = () => {
   // The boatsArray is passed into state as the initial state for 'boats' in App.js
@@ -36,13 +39,19 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        {/* Import Nav here */}
+        <Nav />
       </header>
       <main>
         <Route 
-          path="/"
+          exact path="/"
           component={ Home }
         />
+        <Route 
+          path = '/listings'
+          component = {(props) => <Listings {...props} boats = {boats}/>}/>
+          <Route 
+          path = '/listings/:id'
+          component = {(props) => <BoatDetails {...props} boats = {boats} /> }/>
       </main>
     </div>
   )
