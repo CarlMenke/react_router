@@ -1,6 +1,9 @@
+
 import React, { useState } from 'react'
 import boatsArray from './data/boats'
 import './styles/App.css'
+import { Route } from 'react-router-dom'
+import Home from './components/Home'
 
 const App = () => {
   // The boatsArray is passed into state as the initial state for 'boats' in App.js
@@ -36,7 +39,10 @@ const App = () => {
         {/* Import Nav here */}
       </header>
       <main>
-        {/* Create Routes to components here */}
+        <Route 
+          path="/"
+          component={ Home }
+        />
       </main>
     </div>
   )
