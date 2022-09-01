@@ -5,8 +5,14 @@ const BoatDetails = (props) => {
   const [selectedBoat, setBoat] = useState('')
 
   useEffect(() => {
+
+    console.log(props)
+
+    let selectedBoat = props.boats.find((boat) => boat.id === parseInt(props.match.params.id))
+
+    setBoat(selectedBoat)
     
-  }, [])
+  }, [props.boats, props.match.params.id])
 
   return selectedBoat ? (
     <div className="detail">
